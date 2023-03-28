@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Metronome</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #bpm {
+            width: 50px;
+            margin-right: 10px;
+        }
+        button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Metronome</h1>
+    <div id="controls">
+        <input type="number" id="bpm" value="60">
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="increaseBPM()">+</button>
+        <button onclick="decreaseBPM()">-</button>
+    </div>
+    
+    <script>
+        let metronome;
+        let bpmInput = document.getElementById("bpm");
+        let bpm = parseInt(bpmInput.value);
+        let interval = 60000 / bpm;
+        let tickAudio = new Audio('click.wav');
+        
+        function start() {
+            metronome = setInterval(tick, interval);
+        }
+        function stop() {
+            clearInterval(metronome);
+        }
+        function tick() {
+            // let tickAudio = document.getElementById("tickAudio");
+            tickAudio.play();
+        }
+        function increaseBPM() {
+            bpm +=5;
+            bpmInput.value = bpm;
+            clearInterval(metronome);
+            interval =60000 / bpm;
+            metronome = setInterval(tick, interval);
+        }
+        function decreaseBPM() {
+            bpm -=5;
+            bpmInput.value = bpm;
+            clearInterval(metronome);
+            interval =60000 / bpm;
+            metronome = setInterval(tick, interval);
+        }
+    </script>
+</body>
+</html>

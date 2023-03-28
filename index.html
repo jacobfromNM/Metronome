@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Metronome</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Metronome</h1>
+      <div class="controls">
+        <div class="bpm-control">
+          <label for="bpm">BPM:</label>
+          <input type="number" id="bpm" name="bpm" value="60" min="1" max="300">
+        </div>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="increase">Increase</button>
+        <button id="decrease">Decrease</button>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>"Music is a higher revelation than all wisdom and philosophy." - Ludwig van Beethoven</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
