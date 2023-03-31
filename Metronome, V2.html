@@ -111,7 +111,8 @@
        });  
 
        document.getElementById("stop").addEventListener("click", function() {  
-         clearInterval(metronome);  
+        // @TODO: Find a way to stop all instances of the tick() method that are active.
+        clearInterval(metronome);  
        });  
 
        document.getElementById("increase").addEventListener("click", function() {  
